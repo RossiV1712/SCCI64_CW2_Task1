@@ -18,6 +18,14 @@ public class TicketSystem {
         return Tickets;
     }
 
+    public ArrayList<Ticket> searchTickets(String[] Values) {
+        ArrayList<Ticket> Output;
+        for (Ticket t : Tickets) {
+
+        }
+        return Tickets;
+    }
+
     public void addTickets(Ticket ticket) {
         Tickets.add(ticket);
     }
@@ -49,6 +57,14 @@ public class TicketSystem {
 
         if (person instanceof User) {
             return (User) person;
+        }
+        return null;
+    }
+
+    public Receptionist getReceptionist(String userID) {
+        Person person = searchPeople(userID);
+        if (person instanceof Receptionist) {
+            return (Receptionist) person;
         }
         return null;
     }

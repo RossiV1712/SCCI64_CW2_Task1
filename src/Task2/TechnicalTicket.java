@@ -28,6 +28,6 @@ public class TechnicalTicket extends Ticket {
 
     @Override
     public String toString() {
-        return super.toString() + "\nReported By: " + ReportedBy + "\nEquipment: " + getEquipEffected();
+        return super.toString() + "\nReported By: " + getReportedBy() + "\nEquipment: " + getEquipEffected();
     }
 }
