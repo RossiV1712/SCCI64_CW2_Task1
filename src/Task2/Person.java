@@ -24,8 +24,17 @@ public abstract class Person {
         return personID;
     }
 
-    public void setPersonID(String personID) {
-        this.personID = personID;
+    public void setPersonID() {
+        int Length = 3;
+        if (name.length() < 3) {
+            Length = name.length();
+        }
+        personID = "";
+        for (int i = 0; i < Length; i++) {
+            this.personID += name.charAt(i);
+        }
+        this.personID += IDCount;
+        IDCount++;
     }
 
     public String getName() {

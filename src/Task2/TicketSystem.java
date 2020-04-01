@@ -18,12 +18,12 @@ public class TicketSystem {
         return Tickets;
     }
 
-    public ArrayList<Ticket> searchTickets(String[] Values) {
-        ArrayList<Ticket> Output;
+    public ArrayList<Ticket> searchTickets(String[] Values, Person ReportedBy, Receptionist AddedBy) {
+        ArrayList<Ticket> Output = new ArrayList<Ticket>();
         for (Ticket t : Tickets) {
-
+            Output.add(t);
         }
-        return Tickets;
+        return Output;
     }
 
     public void addTickets(Ticket ticket) {
@@ -34,14 +34,27 @@ public class TicketSystem {
         return People;
     }
 
+    public ArrayList<Person> searchPeople(String personID, String Name) {
+        ArrayList<Person> ChosenPeople = new ArrayList<Person>();
+        for (Person person : People) {
+            if (person.getPersonID().equals(personID) || person.getName().equals(Name)) {
+                ChosenPeople.add(person);
+            }
+        }
+        return ChosenPeople;
+    }
+
     public void addPeople(Person person) {
         People.add(person);
+    }
+
+    public void removePerson(Person person) {
+        People.remove(person);
     }
 
     public String getSystemName() {
         return SystemName;
     }
-
 
     public Person searchPeople(String userID) {
         for (Person person : People) {
