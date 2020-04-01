@@ -21,7 +21,31 @@ public class TicketSystem {
     public ArrayList<Ticket> searchTickets(String[] Values, Person ReportedBy, Receptionist AddedBy) {
         ArrayList<Ticket> Output = new ArrayList<Ticket>();
         for (Ticket t : Tickets) {
-            Output.add(t);
+            if (Values[0] == null) {
+                Values[0] = "0";
+            }
+            if ((t.getTicketID() == Integer.parseInt(Values[0])) || t.getCreatedBy() == AddedBy || t.getCurrentStatus().toString().equals(Values[2])) {
+                Output.add(t);
+            }
+        }
+        return Output;
+    }
+
+    public ArrayList<Ticket> searchTickets(String[] Values, Person ReportedBy, Receptionist AddedBy, Equipment EquipEffect) {
+        ArrayList<TechnicalTicket> Array = new ArrayList<TechnicalTicket>();
+        for (Ticket T: Tickets) {
+            if (T instanceof TechnicalTicket) {
+                Array.add((TechnicalTicket) T);
+            }
+        }
+        ArrayList<Ticket> Output = new ArrayList<Ticket>();
+        for (TechnicalTicket t : Array) {
+            if (Values[0] == null) {
+                Values[0] = "0";
+            }
+            if ((t.getTicketID() == Integer.parseInt(Values[0])) || t.getCreatedBy() == AddedBy || t.getCurrentStatus().toString().equals(Values[2])) {
+                Output.add(t);
+            }
         }
         return Output;
     }

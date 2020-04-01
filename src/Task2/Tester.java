@@ -1,6 +1,7 @@
 package Task2;
 
 import java.io.IOException;
+import java.util.Date;
 
 public class Tester {
     public Tester() throws IOException {
@@ -13,6 +14,7 @@ public class Tester {
         TSystem.addPeople(Ross);
         TSystem.addPeople(Aaron);
         TSystem.addPeople(Luke);
+        TSystem.addPeople(new Student("James", new Date("05/04/1999")));
         TSystem.addTickets(new Ticket("ABC", Ross));
         TSystem.addTickets(new Ticket("CDE", Max));
         TSystem.addTickets(new Ticket("QWE", Ross));
